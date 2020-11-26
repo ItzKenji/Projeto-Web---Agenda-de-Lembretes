@@ -1,0 +1,10 @@
+:host {
+  margin-top: 1rem;
+  display: block;
+}
+#imgcontainer{
+  background-image: url('/assets/img/folha.jpg');
+
+  background-size: 100%;
+
+}

@@ -1,0 +1,14 @@
+
+main {
+  margin-top: 1rem;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#imgfundo{
+  background-image: url('/assets/img/tela1.jpg');
+  background-size: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}

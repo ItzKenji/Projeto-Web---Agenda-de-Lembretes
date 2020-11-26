@@ -1,0 +1,86 @@
+<!--container geral para controle do inserir-->
+<div class="container-fluid">
+  <div class="row col-12  my-3">
+   <!-- bloco do titulo agenda-->
+    <div class=" offset-1 offset-md-6 offset-sm-4 col ">
+      <p id="tituloagenda">AGENDA</p>
+      <p id="frase">Ola, organize sua vida com mais facilidade</p>
+      <p id="horario">{{data|date:'h:mm a '}}</p>
+      <p id="data" >{{data|date:"dd/MMMM/yyy"}}</p>
+    </div>
+  <!--div para controle do form -->  
+    <div class="col-12  col-lg-8 offset-lg-5 offset-1 offset-md-4 offset-sm-3 " 
+    style="border-radius: 5px; background-color: aliceblue;">
+  <!--form para digitar o lembrete-->
+  <form (submit)="onSalvarLembrete(lembreteForm)" #lembreteForm="ngForm" class="my-3" >
+    <mat-form-field  style="background-color: aliceblue;">
+      <input 
+        type="text"
+        matInput
+        placeholder="Digite o titulo do lembrete"
+        name="titulo"
+        ngModel
+        required
+        minlength="3"
+        [ngModel]="lembrete?.titulo"
+        #titulo="ngModel"
+      />
+      <!--aplicacao de um if caso algo aconteca de errado-->
+      <mat-error *ngIf="titulo.invalid">Digite o titulo do lembrete válido</mat-error>
+    </mat-form-field>
+    <!--form para data lembrete com aplicacao de materialize-->
+    <mat-form-field class="col-6 " style="background-color:aliceblue;">
+      <input
+        type="date"
+        matInput
+        placeholder="Data de Cadastro"
+        name="dataCadastro"
+        ngModel
+        required
+        [ngModel]="lembrete?.dataCadastro"
+        #dataCadastro="ngModel"
+      />
+      <!--aplicacao de um if caso data esteja errado-->
+      <mat-error *ngIf="dataCadastro.invalid">Digite uma data de cadastro válida</mat-error>
+    </mat-form-field>
+
+    <!--form para data lembrete com aplicacao de materialize--> 
+    <mat-form-field class="col-6 " style="background-color: aliceblue;">
+      <input
+        type="date"
+        matInput
+        placeholder="Data Prevista"
+        name="dataPrevista"
+        ngModel
+        required
+        [ngModel]="lembrete?.dataPrevista"
+        #dataPrevista="ngModel"
+      />
+      <!--aplicacao de um if caso data esteja errado-->
+      <mat-error *ngIf="dataPrevista.invalid">Digite uma data prevista válida</mat-error>
+    </mat-form-field> 
+  <!--form para atividade lembrete com aplicacao de materialize-->
+    <mat-form-field  style="background-color: aliceblue;">
+      <input
+        type="text"
+        matInput
+        placeholder="Atividade a ser realizada"
+        name="atividade"
+        ngModel
+        required
+        [ngModel]="lembrete?.atividade"
+        #atividade="ngModel"
+      />
+      <!--aplicacao de um if caso atividade seja errada-->
+      <mat-error *ngIf="atividade.invalid">Digite uma atividade válida</mat-error>
+    </mat-form-field>
+  <!--conteole do botao-->
+  <!--botao esta aplicado dentro do form-->    
+    <button mat-raised-button appEfeitoSombra  class="my-2" style="background-color:rgb(69, 69, 235); color: aliceblue;">
+      Inserir Lembrete
+    </button>
+    </form>
+
+</div>
+</div>
+</div>

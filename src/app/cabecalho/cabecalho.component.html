@@ -1,0 +1,21 @@
+<mat-toolbar  id="toolbar">
+    <!--div aplicada para controlar posicao dos botoes-->
+    <div class="row my-3">
+        <!--div botao listar lembrete-->
+        <div class="col-6">
+    <span >
+        <a appEfeitoSombra mat-button routerLink="/">
+        <img  src="./assets/img/lembrete.png"  id="imglembrete">
+         LISTAR LEMBRETES</a>
+    </span> 
+        </div> 
+        <!--div botao novo lembrete--> 
+        <div class="col-6 "> 
+        <ul>
+        <li><a appEfeitoSombra mat-button routerLink="/criar" >
+            <img  src="./assets/img/lista.png" id="imglembrete">
+            NOVO LEMBRETE</a></li>         
+        </ul>
+</div>
+</div>
+</mat-toolbar>

@@ -1,0 +1,52 @@
+<!--div com container para controle geral de lista-->
+<div class="container-fluid my-2 col-12 col-lg-10   offset-sm-2 offset-md-5 offset-lg-5" id="imgcontainer">  
+  <div class="col my-3 pt-4 ">
+    <!--aplicacao de materialize par obter efeito de ocultar dados do lembrete-->
+<mat-accordion  *ngIf="lembretes.length > 0">
+  <mat-expansion-panel appEfeitoSombra class="my-3" *ngFor="let lembrete of lembretes">
+    <mat-expansion-panel-header >
+      <!--titulo do lembrete-->
+      <p style="font-weight: bold;">Titulo Lembrete : </p>
+      {{ lembrete.titulo }}</mat-expansion-panel-header>
+      <!--div linha para apresentar datas lado a lado-->
+    <div class="row " >
+      <!--data cadastro do lembrete-->
+      <div class="col-6 border "style="border-radius: 10px;">
+        <a style="font-weight: bold;" >Data Cadastro:</a>
+      <p> {{ lembrete.dataCadastro }}</p>
+      </div>
+      <!--data prevista do lembrete-->  
+    <div class="col-6 border " style="border-radius: 10px;" >
+     <a style="font-weight: bold;">Data Prevista:</a><br>
+     <P>{{ lembrete.dataPrevista }}</P>
+    </div>
+    <!--atividade do lembrete--> 
+    <div class="col-12 border my-2 "style="border-radius: 10px;">
+    <a style="font-weight: bold;">Atividade: </a>
+    <p>{{ lembrete.atividade }}</p>
+    </div>
+  </div>
+  <!--aplicado div row para controle de posicao e distanciamento de botoes-->
+    <div class="row ">
+      <div class="col-8">
+        <!--botao de salvar-->
+      <button appEfeitoSombra type="button" style="background-color: chartreuse;border-radius: 6px;"
+       [routerLink]="['/editar', lembrete.id]">EDITAR</button>
+      </div>
+      <div class="col-3">
+        <!--botao de remover-->
+      <button appEfeitoSombra type="button" style="background-color: rgb(238, 102, 12);" 
+      (click)="onDelete(lembrete.id)">REMOVER</button>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<!--apresentaco de linha caso nao exista lembrete cadatrado-->
+<p class="mat-body-1" style="text-align: center;" *ngIf="lembretes.length <= 0">
+  Nenhum lembrete cadastrado
+</p>
+</div>
+</div>
+
+
+
